@@ -1,10 +1,11 @@
 :root {
-    --bg-color: #0f172a;
-    --card-bg: #1e293b;
+    --bg-color: #0b0f19;
+    --card-bg: rgba(30, 41, 59, 0.4);
     --text-color: #f8fafc;
     --text-secondary: #94a3b8;
     --accent-color: #38bdf8;
     --accent-hover: #0ea5e9;
+    --neon-glow: rgba(56, 189, 248, 0.3);
 }
 
 * {
@@ -24,6 +25,21 @@ body {
     justify-content: center;
     padding: 20px;
     overflow-x: hidden;
+    perspective: 1000px; /* Penting untuk memberikan efek ruang 3D */
+}
+
+/* Background Efek Cahaya Belakang */
+.glow-bg {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(80px);
+    opacity: 0.15;
+    z-index: -1;
 }
 
 /* Header Style */
@@ -36,21 +52,26 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(11, 15, 25, 0.7);
+    backdrop-filter: blur(12px);
     z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .profile-icon {
     font-size: 1.8rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     padding: 10px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    box-shadow: 0 0 15px var(--neon-glow);
+    transition: transform 0.3s ease;
+}
+.profile-icon:hover {
+    transform: scale(1.1) rotate(5deg);
 }
 
 /* Main Content Container */
@@ -62,152 +83,179 @@ header {
     animation: fadeIn 1s ease-out;
 }
 
-h1 {
-    font-size: 2.5rem;
+/* Efek Teks Judul 3D */
+.title-3d {
+    font-size: 2.8rem;
     font-weight: 800;
     margin-bottom: 40px;
     letter-spacing: -0.5px;
-    background: linear-gradient(to right, #f8fafc, #38bdf8);
+    background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
-/* Table Style yang Menarik */
-.table-container {
+/* Pembungkus Dimensi 3D */
+.scene-3d {
+    perspective: 1000px;
+    display: inline-block;
+    width: 100%;
+    max-width: 550px;
+}
+
+/* Kartu Utama dengan Efek Kemiringan 3D Kedepan */
+.card-3d {
     background: var(--card-bg);
-    border-radius: 16px;
-    padding: 10px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: rotateX(10deg) rotateY(-5deg); /* Membuat komponen agak miring 3D */
+    box-shadow: 
+        -10px 15px 30px rgba(0, 0, 0, 0.5), 
+        0 0 20px rgba(56, 189, 248, 0.1);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+}
+
+.card-3d:hover {
+    transform: rotateX(0deg) rotateY(0deg) translateY(-5px); /* Merata kembali saat di-hover */
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.6), 
+        0 0 30px rgba(56, 189, 248, 0.25);
+}
+
+/* Table Design */
+.table-container {
+    padding: 15px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    overflow: hidden;
 }
 
 th {
-    background-color: rgba(255, 255, 255, 0.02);
     color: var(--text-secondary);
     font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 td {
-    padding: 30px 20px;
-    text-align: center;
+    padding: 40px 20px;
 }
 
-/* Button Style di dalam Tabel */
-.btn-start {
+/* Tombol Timbul (3D Button) */
+.btn-3d {
     display: inline-block;
     padding: 14px 40px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #000;
-    background-color: var(--accent-color);
+    background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+    box-shadow: 
+        0 4px 0px #0369a1, /* Efek tebal bagian bawah tombol */
+        0 8px 20px rgba(56, 189, 248, 0.4);
 }
 
-.btn-start:hover {
-    background-color: var(--accent-hover);
+.btn-3d:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
+    box-shadow: 
+        0 6px 0px #0369a1,
+        0 12px 25px rgba(56, 189, 248, 0.5);
 }
 
-/* --- TAMBAHAN UNTUK HALAMAN ABOUT & TAB --- */
+.btn-3d:active {
+    transform: translateY(4px); /* Tombol tertekan amblas kebawah */
+    box-shadow: 
+        0 0px 0px #0369a1,
+        0 4px 10px rgba(56, 189, 248, 0.3);
+}
+
+/* --- HALAMAN ABOUT --- */
 .hidden {
     display: none !important;
 }
 
-.about-title {
-    margin-bottom: 20px !important;
-}
-
 .about-card {
-    background: var(--card-bg);
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.05);
     max-width: 500px;
     margin: 0 auto;
-    animation: fadeIn 0.5s ease-out;
 }
 
 .name-display {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: var(--text-color);
     margin-bottom: 25px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .tab-menu {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     margin-bottom: 25px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
 }
 
+/* Tombol Tab versi 3D Pasif */
 .tab-btn {
-    background: none;
-    border: none;
+    background: rgba(255, 255, 255, 0.03);
     color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 8px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 .tab-btn:hover {
-    color: var(--accent-color);
-    background: rgba(56, 189, 248, 0.1);
+    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.08);
 }
 
+/* Tombol Tab versi 3D Aktif */
 .tab-btn.active {
-    color: #000;
-    background-color: var(--accent-color);
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+    color: #fff;
+    background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+    box-shadow: 
+        0 3px 0 #1d4ed8,
+        0 6px 15px rgba(14, 165, 233, 0.4);
+}
+
+/* Kotak Info Teks Timbul Kedalam */
+.info-text {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6); /* Inner shadow efek cekung */
 }
 
 .tab-content {
     display: none;
-    animation: fadeEffect 0.5s ease;
+    animation: fadeEffect 0.4s ease;
 }
 
 .tab-content.show {
     display: block;
 }
 
-.info-text {
-    font-size: 1.2rem;
-    color: var(--text-color);
-    font-weight: 600;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeEffect {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
 }

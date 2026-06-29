@@ -3,54 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Pribadi</title>
+    <title>Portofolio Pribadi 3D</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div class="glow-bg"></div>
 
     <header>
         <div class="profile-icon">👤</div>
     </header>
 
     <div class="container" id="homePage">
-        <h1>Selamat Datang di Portofolio Pribadi</h1>
+        <h1 class="title-3d">Selamat Datang di Portofolio Pribadi</h1>
 
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Jelajahi Karya & Pengalaman Saya</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <button class="btn-start" id="startBtn">Mulai</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="scene-3d">
+            <div class="table-container card-3d">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jelajahi Karya & Pengalaman Saya</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button class="btn-start btn-3d" id="startBtn">Mulai</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <div class="container hidden" id="aboutPage">
-        <h1 class="about-title">Tentang Saya</h1>
+        <h1 class="title-3d">Tentang Saya</h1>
         
-        <div class="about-card">
-            <h2 class="name-display">Saifuddin Salman Habibie</h2>
-            
-            <div class="tab-menu">
-                <button class="tab-btn active" id="btnLahir">Tanggal Lahir</button>
-                <button class="tab-btn" id="btnTinggal">Tempat Tinggal</button>
-            </div>
+        <div class="scene-3d">
+            <div class="about-card card-3d">
+                <h2 class="name-display">Saifuddin Salman Habibie</h2>
+                
+                <div class="tab-menu">
+                    <button class="tab-btn active btn-3d" id="btnLahir">Tanggal Lahir</button>
+                    <button class="tab-btn btn-3d" id="btnTinggal">Tempat Tinggal</button>
+                </div>
 
-            <div id="tabLahir" class="tab-content show">
-                <p class="info-text">📅 02 Februari 2005</p>
-            </div>
+                <div id="tabLahir" class="tab-content show">
+                    <p class="info-text">📅 02 Februari 2005</p>
+                </div>
 
-            <div id="tabTinggal" class="tab-content">
-                <p class="info-text">📍 Rangkasbitung, Lebak, Banten</p>
+                <div id="tabTinggal" class="tab-content">
+                    <p class="info-text">📍 Rangkasbitung, Lebak, Banten</p>
+                </div>
             </div>
         </div>
     </div>
