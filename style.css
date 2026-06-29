@@ -284,3 +284,181 @@ td { padding: 40px 20px; }
         grid-template-columns: 1fr;
     }
 }
+/* --- TAMBAHAN GAYA HALAMAN CONTACT & SERTIFIKAT 3D --- */
+.contact-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+/* Penataan Grid Sosial Media */
+.social-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.social-btn {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff !important; /* Warna teks putih */
+    width: 100%;
+}
+
+/* Custom Warna Khusus Tiap Sosmed Bergradasi 3D */
+.wa-btn {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    box-shadow: 0 4px 0px #15803d, 0 8px 20px rgba(34, 197, 94, 0.3);
+}
+.wa-btn:hover { box-shadow: 0 6px 0px #15803d, 0 12px 25px rgba(34, 197, 94, 0.4); }
+
+.ig-btn {
+    background: linear-gradient(135deg, #ec4899 0%, #d946ef 100%);
+    box-shadow: 0 4px 0px #a21caf, 0 8px 20px rgba(236, 72, 153, 0.3);
+}
+.ig-btn:hover { box-shadow: 0 6px 0px #a21caf, 0 12px 25px rgba(236, 72, 153, 0.4); }
+
+.ln-btn {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    box-shadow: 0 4px 0px #1d4ed8, 0 8px 20px rgba(2, 132, 199, 0.3);
+}
+.ln-btn:hover { box-shadow: 0 6px 0px #1d4ed8, 0 12px 25px rgba(2, 132, 199, 0.4); }
+
+/* Bingkai Foto Sertifikat Timbul */
+.certificate-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 25px;
+}
+
+.cert-title {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.cert-frame {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6), 0 10px 20px rgba(0,0,0,0.4);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.cert-frame:hover {
+    transform: scale(1.03) rotate(1deg);
+}
+
+.cert-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+/* --- EDIT STYLE LOGO FOTO PROFIL KECIL --- */
+.profile-icon {
+    width: 42px;
+    height: 42px;
+    padding: 0; /* Hapus padding lama */
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid rgba(56, 189, 248, 0.5);
+}
+
+.profile-img-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Agar foto tetap proporsional berbentuk bulat */
+    display: block;
+}
+
+/* --- JENDELA POP-UP MEMBESAR (IMAGE MODAL) --- */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+/* Memunculkan Pop-up ketika class 'open' aktif */
+.image-modal.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Latar belakang gelap transparan di belakang foto */
+.modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 15, 25, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+/* Kontainer Foto Besar Berorientasi 3D */
+.modal-content-3d {
+    position: relative;
+    max-width: 90%;
+    max-height: 80vh;
+    background: rgba(30, 41, 59, 0.7);
+    padding: 12px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(56, 189, 248, 0.2);
+    transform: scale(0.7) rotateX(15deg); /* Animasi awal miring & mengecil */
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 1000;
+}
+
+.image-modal.open .modal-content-3d {
+    transform: scale(1) rotateX(0deg); /* Menjadi tegak & membesar saat dibuka */
+}
+
+.modal-img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 16px;
+    display: block;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* Tombol Tutup Silang (X) */
+.close-modal-btn {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
+    transition: transform 0.2s ease;
+}
+
+.close-modal-btn:hover {
+    transform: scale(1.1) rotate(90deg);
+}

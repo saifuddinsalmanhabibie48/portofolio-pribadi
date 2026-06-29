@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Pribadi</title>
+    <title>Portofolio Pribadi 3D Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +13,9 @@
 
     <header class="dashboard-3d">
         <div class="nav-brand">
-            <div class="profile-icon">👤</div>
+            <div class="profile-icon" id="profileTrigger">
+                <img src="fotoku.jpg" alt="Foto Salman" class="profile-img-thumb">
+            </div>
         </div>
         <nav class="nav-menu">
             <button class="nav-link active" id="navHome">Home</button>
@@ -108,10 +110,40 @@
 
     <div class="container section-page hidden" id="contactPage">
         <h1 class="title-3d">Hubungi Saya</h1>
+        
         <div class="scene-3d">
             <div class="card-3d">
-                <p class="info-text">📧 Bagian Kontak sedang dipersiapkan...</p>
+                <h3 class="contact-subtitle">Mari Terhubung!</h3>
+                
+                <div class="social-grid">
+                    <a href="https://wa.me/qr/ZU7P7CHJCDX4B1" target="_blank" class="social-btn wa-btn btn-3d">
+                        <span>💬 WhatsApp</span>
+                    </a>
+                    <a href="https://www.instagram.com/saifuddinsalmanhabibie?igsh=bXJtNGJvOHd3MWlm" target="_blank" class="social-btn ig-btn btn-3d">
+                        <span>📸 Instagram</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/salman-habibie-b1a5a632a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-btn ln-btn btn-3d">
+                        <span>💼 LinkedIn</span>
+                    </a>
+                </div>
+
+                <div class="certificate-section">
+                    <h4 class="cert-title">Sertifikat Saya</h4>
+                    <div class="cert-frame">
+                        <img src="sertifikat.jpg" alt="Sertifikat Salman" class="cert-img">
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <div class="image-modal" id="imageModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content-3d">
+            <button class="close-modal-btn" id="closeModal">&times;</button>
+            <img src="foto1.jpg" alt="Foto Salman Besar" class="modal-img">
+            <img src="foto2.jpg" alt="Foto Salman Besar" class="modal-img">
+            <img src="foto3.jpg" alt="Foto Salman Besar" class="modal-img">
         </div>
     </div>
 

@@ -77,3 +77,23 @@ btnIsiSkill.addEventListener('click', () => {
     tabIsiSkill.classList.add('show');
     tabIsiPengalaman.classList.remove('show');
 });
+// --- LOGIKA POP-UP MEMBESARKAN FOTO PROFIL ---
+const profileTrigger = document.getElementById('profileTrigger');
+const imageModal = document.getElementById('imageModal');
+const closeModal = document.getElementById('closeModal');
+const modalOverlay = document.getElementById('modalOverlay');
+
+// Fungsi Membuka Pop-Up
+profileTrigger.addEventListener('click', () => {
+    imageModal.classList.add('open');
+});
+
+// Fungsi Menutup Pop-Up (Lewat Tombol Silang)
+closeModal.addEventListener('click', () => {
+    imageModal.classList.remove('open');
+});
+
+// Fungsi Menutup Pop-Up (Lewat Klik Luar Foto / Area Gelap)
+modalOverlay.addEventListener('click', () => {
+    imageModal.classList.remove('open');
+});
