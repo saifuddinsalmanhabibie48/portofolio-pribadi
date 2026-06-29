@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Pribadi 3D</title>
+    <title>Portofolio Pribadi 3D Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,11 +11,19 @@
 
     <div class="glow-bg"></div>
 
-    <header>
-        <div class="profile-icon">👤</div>
+    <header class="dashboard-3d">
+        <div class="nav-brand">
+            <div class="profile-icon">👤</div>
+        </div>
+        <nav class="nav-menu">
+            <button class="nav-link active" id="navHome">Home</button>
+            <button class="nav-link" id="navAbout">About</button>
+            <button class="nav-link" id="navPengalaman">Pengalaman</button>
+            <button class="nav-link" id="navContact">Contact</button>
+        </nav>
     </header>
 
-    <div class="container" id="homePage">
+    <div class="container section-page" id="homePage">
         <h1 class="title-3d">Selamat Datang di Portofolio Pribadi</h1>
 
         <div class="scene-3d">
@@ -38,7 +46,7 @@
         </div>
     </div>
 
-    <div class="container hidden" id="aboutPage">
+    <div class="container section-page hidden" id="aboutPage">
         <h1 class="title-3d">Tentang Saya</h1>
         
         <div class="scene-3d">
@@ -57,6 +65,24 @@
                 <div id="tabTinggal" class="tab-content">
                     <p class="info-text">📍 Rangkasbitung, Lebak, Banten</p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container section-page hidden" id="pengalamanPage">
+        <h1 class="title-3d">Pengalaman Kerja</h1>
+        <div class="scene-3d">
+            <div class="card-3d">
+                <p class="info-text">🚧 Bagian Pengalaman sedang dipersiapkan...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container section-page hidden" id="contactPage">
+        <h1 class="title-3d">Hubungi Saya</h1>
+        <div class="scene-3d">
+            <div class="card-3d">
+                <p class="info-text">📧 Bagian Kontak sedang dipersiapkan...</p>
             </div>
         </div>
     </div>

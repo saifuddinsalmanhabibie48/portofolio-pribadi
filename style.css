@@ -25,53 +25,93 @@ body {
     justify-content: center;
     padding: 20px;
     overflow-x: hidden;
-    perspective: 1000px; /* Penting untuk memberikan efek ruang 3D */
+    perspective: 1200px; /* Diperkuat untuk kedalaman 3D */
 }
 
 /* Background Efek Cahaya Belakang */
 .glow-bg {
     position: absolute;
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
-    top: 30%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
-    filter: blur(80px);
+    filter: blur(100px);
     opacity: 0.15;
     z-index: -1;
 }
 
-/* Header Style */
-header {
+/* DESAIN DASHBOARD NAVIGASI 3D */
+.dashboard-3d {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 40px;
+    top: 20px;
+    width: 90%;
+    max-width: 800px;
+    padding: 12px 30px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    background: rgba(11, 15, 25, 0.7);
-    backdrop-filter: blur(12px);
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 50px;
     z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    transform: rotateX(5deg); /* Sedikit miring 3D atas */
+    transition: transform 0.3s ease;
+}
+
+.dashboard-3d:hover {
+    transform: rotateX(0deg) translateY(2px);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 10px;
+}
+
+/* Tombol Menu di Dashboard */
+.nav-link {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 8px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Tombol Menu Aktif (3D Glow) */
+.nav-link.active {
+    color: #fff;
+    background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+    box-shadow: 
+        0 3px 0 #1d4ed8,
+        0 6px 15px rgba(14, 165, 233, 0.4);
+    transform: translateY(-2px);
 }
 
 .profile-icon {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     background: rgba(255, 255, 255, 0.05);
-    padding: 10px;
+    padding: 6px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(56, 189, 248, 0.3);
-    box-shadow: 0 0 15px var(--neon-glow);
-    transition: transform 0.3s ease;
-}
-.profile-icon:hover {
-    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 10px var(--neon-glow);
 }
 
 /* Main Content Container */
@@ -79,15 +119,13 @@ header {
     text-align: center;
     max-width: 800px;
     width: 100%;
-    margin-top: 80px;
-    animation: fadeIn 1s ease-out;
+    margin-top: 140px; /* Jarak ditambah agar tidak tertutup dashboard */
 }
 
-/* Efek Teks Judul 3D */
 .title-3d {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 800;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
     letter-spacing: -0.5px;
     background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
     -webkit-background-clip: text;
@@ -95,7 +133,6 @@ header {
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
-/* Pembungkus Dimensi 3D */
 .scene-3d {
     perspective: 1000px;
     display: inline-block;
@@ -103,7 +140,6 @@ header {
     max-width: 550px;
 }
 
-/* Kartu Utama dengan Efek Kemiringan 3D Kedepan */
 .card-3d {
     background: var(--card-bg);
     backdrop-filter: blur(16px);
@@ -111,44 +147,21 @@ header {
     border-radius: 24px;
     padding: 30px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transform: rotateX(10deg) rotateY(-5deg); /* Membuat komponen agak miring 3D */
-    box-shadow: 
-        -10px 15px 30px rgba(0, 0, 0, 0.5), 
-        0 0 20px rgba(56, 189, 248, 0.1);
+    transform: rotateX(10deg) rotateY(-5deg);
+    box-shadow: -10px 15px 30px rgba(0, 0, 0, 0.5);
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
 }
 
 .card-3d:hover {
-    transform: rotateX(0deg) rotateY(0deg) translateY(-5px); /* Merata kembali saat di-hover */
-    box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.6), 
-        0 0 30px rgba(56, 189, 248, 0.25);
+    transform: rotateX(0deg) rotateY(0deg) translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.2);
 }
 
-/* Table Design */
-.table-container {
-    padding: 15px;
-}
+.table-container { padding: 15px; }
+table { width: 100%; border-collapse: collapse; }
+th { color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; padding: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+td { padding: 40px 20px; }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-td {
-    padding: 40px 20px;
-}
-
-/* Tombol Timbul (3D Button) */
 .btn-3d {
     display: inline-block;
     padding: 14px 40px;
@@ -160,101 +173,28 @@ td {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 
-        0 4px 0px #0369a1, /* Efek tebal bagian bawah tombol */
-        0 8px 20px rgba(56, 189, 248, 0.4);
+    box-shadow: 0 4px 0px #0369a1, 0 8px 20px rgba(56, 189, 248, 0.4);
 }
 
-.btn-3d:hover {
-    transform: translateY(-2px);
-    box-shadow: 
-        0 6px 0px #0369a1,
-        0 12px 25px rgba(56, 189, 248, 0.5);
-}
-
-.btn-3d:active {
-    transform: translateY(4px); /* Tombol tertekan amblas kebawah */
-    box-shadow: 
-        0 0px 0px #0369a1,
-        0 4px 10px rgba(56, 189, 248, 0.3);
-}
+.btn-3d:hover { transform: translateY(-2px); box-shadow: 0 6px 0px #0369a1, 0 12px 25px rgba(56, 189, 248, 0.5); }
+.btn-3d:active { transform: translateY(4px); box-shadow: 0 0px 0px #0369a1, 0 4px 10px rgba(56, 189, 248, 0.3); }
 
 /* --- HALAMAN ABOUT --- */
-.hidden {
-    display: none !important;
-}
+.hidden { display: none !important; }
+.about-card { max-width: 500px; margin: 0 auto; }
+.name-display { font-size: 2rem; color: var(--text-color); margin-bottom: 25px; }
+.tab-menu { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 20px; }
+.tab-btn { background: rgba(255, 255, 255, 0.03); color: var(--text-secondary); border: 1px solid rgba(255, 255, 255, 0.05); padding: 10px 20px; font-size: 0.9rem; }
+.tab-btn.active { color: #fff; background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%); box-shadow: 0 3px 0 #1d4ed8, 0 6px 15px rgba(14, 165, 233, 0.4); }
+.info-text { font-size: 1.2rem; color: var(--text-color); font-weight: 600; background: rgba(0, 0, 0, 0.2); padding: 20px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6); }
 
-.about-card {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.name-display {
-    font-size: 2rem;
-    color: var(--text-color);
-    margin-bottom: 25px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-.tab-menu {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 20px;
-}
-
-/* Tombol Tab versi 3D Pasif */
-.tab-btn {
-    background: rgba(255, 255, 255, 0.03);
-    color: var(--text-secondary);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
-
-.tab-btn:hover {
-    color: var(--text-color);
-    background: rgba(255, 255, 255, 0.08);
-}
-
-/* Tombol Tab versi 3D Aktif */
-.tab-btn.active {
-    color: #fff;
-    background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
-    box-shadow: 
-        0 3px 0 #1d4ed8,
-        0 6px 15px rgba(14, 165, 233, 0.4);
-}
-
-/* Kotak Info Teks Timbul Kedalam */
-.info-text {
-    font-size: 1.2rem;
-    color: var(--text-color);
-    font-weight: 600;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6); /* Inner shadow efek cekung */
-}
-
-.tab-content {
-    display: none;
-    animation: fadeEffect 0.4s ease;
-}
-
-.tab-content.show {
-    display: block;
-}
+.tab-content { display: none; animation: fadeEffect 0.4s ease; }
+.tab-content.show { display: block; }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeEffect {
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
