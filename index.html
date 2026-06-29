@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Pribadi 3D Dashboard</title>
+    <title>Portofolio Pribadi</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -70,10 +70,38 @@
     </div>
 
     <div class="container section-page hidden" id="pengalamanPage">
-        <h1 class="title-3d">Pengalaman Kerja</h1>
+        <h1 class="title-3d">Pengalaman & Skill</h1>
+        
         <div class="scene-3d">
             <div class="card-3d">
-                <p class="info-text">🚧 Bagian Pengalaman sedang dipersiapkan...</p>
+                <div class="tab-menu">
+                    <button class="tab-btn active btn-3d" id="btnIsiPengalaman">Pengalaman</button>
+                    <button class="tab-btn btn-3d" id="btnIsiSkill">Skill</button>
+                </div>
+
+                <div id="tabIsiPengalaman" class="tab-content-exp show">
+                    <div class="list-item-3d">
+                        <h4>Organisasi SISPALA</h4>
+                        <p class="sub-text">SMKN 2 Rangkasbitung</p>
+                        <span class="badge-date">2021 - 2022</span>
+                    </div>
+                    <div class="list-item-3d">
+                        <h4>Bekerja di Konter & Server Abah</h4>
+                        <p class="sub-text">Teknisi / Pengelola</p>
+                        <span class="badge-date">2025 - Sekarang</span>
+                    </div>
+                </div>
+
+                <div id="tabIsiSkill" class="tab-content-exp">
+                    <div class="skill-grid">
+                        <div class="skill-badge">📊 Microsoft Word</div>
+                        <div class="skill-badge">📈 Microsoft Excel</div>
+                        <div class="skill-badge">🌐 HTML</div>
+                        <div class="skill-badge">🎨 CSS</div>
+                        <div class="skill-badge">🐘 PHP</div>
+                        <div class="skill-badge">⚡ JavaScript</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

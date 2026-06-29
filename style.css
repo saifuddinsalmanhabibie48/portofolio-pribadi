@@ -199,3 +199,88 @@ td { padding: 40px 20px; }
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
 }
+/* --- TAMBAHAN GAYA HALAMAN PENGALAMAN & SKILL 3D --- */
+.tab-content-exp {
+    display: none;
+    animation: fadeEffect 0.4s ease;
+    text-align: left;
+}
+
+.tab-content-exp.show {
+    display: block;
+}
+
+/* Desain List Pengalaman Efek Timbul */
+.list-item-3d {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 18px;
+    border-radius: 14px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4), 0 4px 10px rgba(0,0,0,0.2);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.list-item-3d:hover {
+    transform: translateX(5px) scale(1.02);
+    border-color: var(--accent-color);
+}
+
+.list-item-3d h4 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+
+.list-item-3d .sub-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.badge-date {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* Tata Letak Kotak Grid Skill */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 10px 0;
+}
+
+/* Badge Skill 3D */
+.skill-badge {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), transparent);
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(56, 189, 248, 0.15);
+}
+
+/* Responsif HP agar Grid Skill jadi 1 baris vertikal */
+@media (max-width: 480px) {
+    .skill-grid {
+        grid-template-columns: 1fr;
+    }
+}

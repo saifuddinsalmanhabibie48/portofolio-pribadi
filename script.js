@@ -56,3 +56,24 @@ btnTinggal.addEventListener('click', () => {
     tabTinggal.classList.add('show');
     tabLahir.classList.remove('show');
 });
+// --- LOGIKA TAMBAHAN UNTUK TAB PENGALAMAN VS SKILL ---
+const btnIsiPengalaman = document.getElementById('btnIsiPengalaman');
+const btnIsiSkill = document.getElementById('btnIsiSkill');
+const tabIsiPengalaman = document.getElementById('tabIsiPengalaman');
+const tabIsiSkill = document.getElementById('tabIsiSkill');
+
+btnIsiPengalaman.addEventListener('click', () => {
+    btnIsiPengalaman.classList.add('active');
+    btnIsiSkill.classList.remove('active');
+    
+    tabIsiPengalaman.classList.add('show');
+    tabIsiSkill.classList.remove('show');
+});
+
+btnIsiSkill.addEventListener('click', () => {
+    btnIsiSkill.classList.add('active');
+    btnIsiPengalaman.classList.remove('active');
+    
+    tabIsiSkill.classList.add('show');
+    tabIsiPengalaman.classList.remove('show');
+});
