@@ -136,3 +136,91 @@ td {
         transform: translateY(0);
     }
 }
+/* --- TAMBAHAN UNTUK HALAMAN ABOUT & TAB --- */
+
+/* Class untuk menyembunyikan halaman */
+.hidden {
+    display: none !important;
+}
+
+.about-title {
+    margin-bottom: 20px !important;
+}
+
+.about-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 500px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.name-display {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
+
+/* Desain Menu Tab */
+.tab-menu {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.tab-btn:hover {
+    color: var(--accent-color);
+    background: rgba(56, 189, 248, 0.1);
+}
+
+/* Gaya Tab yang sedang aktif/diklik */
+.tab-btn.active {
+    color: #000;
+    background-color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+/* Desain Isi Konten Tab */
+.tab-content {
+    display: none;
+    animation: fadeEffect 0.5s ease;
+}
+
+/* Class untuk memunculkan isi konten tab */
+.tab-content.show {
+    display: block;
+}
+
+.info-text {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Animasi perpindahan isi tab */
+@keyframes fadeEffect {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
