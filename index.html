@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Pribadi</title>
-    <!-- Menghubungkan Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-    <!-- Menghubungkan file CSS eksternal -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- HEADER DENGAN ICON MANUSIA -->
     <header>
         <div class="profile-icon">👤</div>
     </header>
 
-    <!-- KONTEN UTAMA HOME -->
     <div class="container" id="homePage">
         <h1>Selamat Datang di Portofolio Pribadi</h1>
 
-        <!-- TABEL MULAI -->
         <div class="table-container">
             <table>
                 <thead>
@@ -39,20 +34,17 @@
         </div>
     </div>
 
-    <!-- KONTEN HALAMAN ABOUT (Disembunyikan dulu, muncul saat tombol Mulai diklik) -->
     <div class="container hidden" id="aboutPage">
         <h1 class="about-title">Tentang Saya</h1>
         
         <div class="about-card">
             <h2 class="name-display">Saifuddin Salman Habibie</h2>
             
-            <!-- Sistem Navigasi Tab -->
             <div class="tab-menu">
-                <button class="tab-btn active" onclick="bukaTab(event, 'tabLahir')">Tanggal Lahir</button>
-                <button class="tab-btn" onclick="bukaTab(event, 'tabTinggal')">Tempat Tinggal</button>
+                <button class="tab-btn active" id="btnLahir">Tanggal Lahir</button>
+                <button class="tab-btn" id="btnTinggal">Tempat Tinggal</button>
             </div>
 
-            <!-- Isi Konten Tiap Tab -->
             <div id="tabLahir" class="tab-content show">
                 <p class="info-text">📅 02 Februari 2005</p>
             </div>
@@ -63,7 +55,6 @@
         </div>
     </div>
 
-    <!-- Menghubungkan file JavaScript eksternal -->
     <script src="script.js"></script>
 </body>
 </html>

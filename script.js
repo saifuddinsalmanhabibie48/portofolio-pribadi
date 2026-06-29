@@ -1,33 +1,34 @@
-// Mengambil elemen halaman dan tombol
+// Ambil elemen halaman dan tombol Mulai
 const tombolMulai = document.getElementById('startBtn');
 const halamanHome = document.getElementById('homePage');
 const halamanAbout = document.getElementById('aboutPage');
 
-// Aksi ketika tombol "Mulai" diklik
+// Ambil elemen tombol Tab dan konten Tab
+const btnLahir = document.getElementById('btnLahir');
+const btnTinggal = document.getElementById('btnTinggal');
+const tabLahir = document.getElementById('tabLahir');
+const tabTinggal = document.getElementById('tabTinggal');
+
+// Event saat tombol "Mulai" diklik
 tombolMulai.addEventListener('click', () => {
-    // Sembunyikan halaman Home
     halamanHome.classList.add('hidden');
-    // Munculkan halaman About
     halamanAbout.classList.remove('hidden');
 });
 
-// Fungsi untuk mengatur sistem perpindahan Tab
-function bukaTab(event, namaTab) {
-    // 1. Sembunyikan semua konten tab terlebih dahulu
-    const semuaKonten = document.getElementsByClassName("tab-content");
-    for (let i = 0; i < semuaKonten.length; i++) {
-        semuaKonten[i].classList.remove("show");
-    }
+// Event saat Tab Tanggal Lahir diklik
+btnLahir.addEventListener('click', () => {
+    btnLahir.classList.add('active');
+    btnTinggal.classList.remove('active');
+    
+    tabLahir.classList.add('show');
+    tabTinggal.classList.remove('show');
+});
 
-    // 2. Hilangkan status aktif ('active') dari semua tombol tab
-    const semuaTombol = document.getElementsByClassName("tab-btn");
-    for (let i = 0; i < semuaTombol.length; i++) {
-        semubol = semuaTombol[i].classList.remove("active");
-    }
-
-    // 3. Tampilkan konten tab yang sedang diklik
-    document.getElementById(namaTab).classList.add("show");
-
-    // 4. Tambahkan status 'active' pada tombol yang baru saja diklik
-    event.currentTarget.classList.add("active");
-}
+// Event saat Tab Tempat Tinggal diklik
+btnTinggal.addEventListener('click', () => {
+    btnTinggal.classList.add('active');
+    btnLahir.classList.remove('active');
+    
+    tabTinggal.classList.add('show');
+    tabLahir.classList.remove('show');
+});

@@ -125,20 +125,7 @@ td {
     box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
 }
 
-/* Animasi Masuk */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 /* --- TAMBAHAN UNTUK HALAMAN ABOUT & TAB --- */
-
-/* Class untuk menyembunyikan halaman */
 .hidden {
     display: none !important;
 }
@@ -164,7 +151,6 @@ td {
     margin-bottom: 25px;
 }
 
-/* Desain Menu Tab */
 .tab-menu {
     display: flex;
     justify-content: center;
@@ -191,20 +177,17 @@ td {
     background: rgba(56, 189, 248, 0.1);
 }
 
-/* Gaya Tab yang sedang aktif/diklik */
 .tab-btn.active {
     color: #000;
     background-color: var(--accent-color);
     box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
 }
 
-/* Desain Isi Konten Tab */
 .tab-content {
     display: none;
     animation: fadeEffect 0.5s ease;
 }
 
-/* Class untuk memunculkan isi konten tab */
 .tab-content.show {
     display: block;
 }
@@ -219,7 +202,11 @@ td {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Animasi perpindahan isi tab */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes fadeEffect {
     from { opacity: 0; transform: translateY(5px); }
     to { opacity: 1; transform: translateY(0); }
